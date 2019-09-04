@@ -56,7 +56,7 @@ class Pembelian extends Controller
         $databeli = ModelBarang::where('kd_barang', $request->kd_barang)->first();
 
         // script kurang tambah stok
-        $databeli->stok = $databeli->stok - $request->jumlah;
+        $databeli->stok = $databeli->stok + $request->jumlah;
         $databeli->save();
 
         return redirect()->route('pembelian.index')->with('alert_message','Berhasil menambahkan data!');
